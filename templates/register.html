@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="auth-container">
+
+    <div class="auth-card">
+
+        <h2>Create Account</h2>
+
+        <form method="POST">
+
+            {% csrf_token %}
+
+            <input type="text" id="username" name="username" placeholder="Username" required>
+
+            <small id="username-error"></small>
+
+            <input type="email" id="email" name="email" placeholder="Email" required>
+
+            <small id="email-error"></small>
+
+            <input type="password" name="password" placeholder="Password" required>
+
+            <button type="submit">
+                Register
+            </button>
+
+        </form>
+
+        <p class="auth-link">
+            Already have an account?
+            <a href="{% url 'login' %}">
+                Login here
+            </a>
+        </p>
+
+    </div>
+
+</div>
+
+<script>
+
+const usernameInput =
+document.getElementById("username");
+
+const emailInput =
+document.getElementById("email");
+
+const usernameError =
+document.getElementById("username-error");
+
+const emailError =
+document.getElementById("email-error");
+
+usernameInput.addEventListener(
+    "input",
+    function(){
+
+        const regex = /^[A-Za-z ]*$/;
+
+        if(!regex.test(this.value)){
+
+            usernameError.innerText =
+            "Only letters are allowed";
+
+            usernameError.style.color =
+            "red";
+
+        }
+        else{
+
+            usernameError.innerText = "";
+        }
+    }
+);
+
+emailInput.addEventListener(
+    "input",
+    function(){
+
+        if(
+            !this.validity.valid
+        ){
+
+            emailError.innerText =
+            "Please enter a valid email address";
+
+            emailError.style.color =
+            "red";
+        }
+        else{
+
+            emailError.innerText = "";
+        }
+    }
+);
+
+</script>
+
+{% endblock %}

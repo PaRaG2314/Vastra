@@ -1,0 +1,129 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vastra</title>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+    <nav class="navbar">
+
+        <a href="{% url 'home' %}" class="logo">
+            Vastra
+        </a>
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="{% url 'home' %}">
+                    Home
+                </a>
+            </li>
+
+            <li class="dropdown">
+
+                <a href="#">
+                    Shop ▾
+                </a>
+
+                <div class="dropdown-content">
+
+                    <a href="{% url 'men' %}">
+                        Men
+                    </a>
+
+                    <a href="{% url 'women' %}">
+                        Women
+                    </a>
+
+                    <a href="{% url 'shoes' %}">
+                        Shoes
+                    </a>
+
+                    <a href="{% url 'accessories' %}">
+                        Accessories
+                    </a>
+
+                </div>
+
+            </li>
+
+            <a href="{% url 'cart' %}">
+                Cart
+
+                {% if cart_count > 0 %}
+                ({{ cart_count }})
+                {% endif %}
+            </a>
+
+            {% if user.is_authenticated %}
+
+            <li>
+                <a href="{% url 'profile' %}">
+                    {{ user.username }}
+                </a>
+            </li>
+
+            <li>
+                <a href="{% url 'logout' %}">
+                    Logout
+                </a>
+            </li>
+
+            {% else %}
+
+            <li>
+                <a href="{% url 'login' %}">
+                    Login
+                </a>
+            </li>
+
+            {% endif %}
+
+        </ul>
+
+    </nav>
+
+    {% if messages %}
+
+    <div class="message-container">
+
+        {% for message in messages %}
+
+        <div class="message {{ message.tags }}">
+            {{ message }}
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+    {% endif %}
+
+    {% block content %}
+    {% endblock %}
+
+    <script>
+
+        setTimeout(() => {
+
+            document.querySelectorAll('.message')
+                .forEach(msg => {
+
+                    msg.style.display = 'none';
+
+                });
+
+        }, 3000);
+
+    </script>
+
+</body>
+
+</html>

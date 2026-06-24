@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if cart_items %}
+
+<section class="cart-page">
+
+    <div class="cart-left">
+
+        <h2>Your Cart</h2>
+
+        {% for item in cart_items %}
+
+        <div class="cart-item">
+
+            <div class="cart-image">
+                <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+            </div>
+
+            <div class="cart-details">
+
+                <h3>{{ item.product.name }}</h3>
+
+                <p>Price: ₹{{ item.product.price }}</p>
+
+                <div class="quantity-box">
+
+                    <a href="{% url 'decrease_quantity' item.product.id %}">
+                        -
+                    </a>
+
+                    <span>{{ item.quantity }}</span>
+
+                    <a href="{% url 'increase_quantity' item.product.id %}">
+                        +
+                    </a>
+
+                </div>
+
+                <p>
+                    Subtotal:
+                    ₹{{ item.subtotal }}
+                </p>
+
+                <a href="{% url 'remove_from_cart' item.product.id %}" class="remove-btn">
+                    Remove Item
+                </a>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+    <div class="cart-right">
+
+        <div class="summary-card">
+
+            <h3>Price Details</h3>
+
+            <div class="summary-row">
+                <span>Items ({{ cart_items|length }})</span>
+                <span>₹{{ total }}</span>
+            </div>
+
+            <div class="summary-row">
+                <span>Shipping</span>
+                <span class="free-text">FREE</span>
+            </div>
+
+            <div class="summary-row">
+                <span>Platform Fee</span>
+                <span>₹0</span>
+            </div>
+
+            <div class="summary-row total-row">
+                <span>Total Amount</span>
+                <span>₹{{ total }}</span>
+            </div>
+
+            <a href="{% url 'checkout' %}" class="checkout-btn">
+
+                Proceed To Checkout
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% else %}
+
+<section class="empty-cart-wrapper">
+
+    <div class="empty-cart">
+
+        <div class="empty-cart-icon">
+            🛒
+        </div>
+
+        <h2>Your Cart Is Empty</h2>
+
+        <p>
+            Looks like you haven't added anything yet.
+        </p>
+
+        <a href="{% url 'home' %}" class="continue-shopping-btn">
+            Continue Shopping
+        </a>
+
+    </div>
+
+</section>
+
+{% endif %}
+
+{% endblock %}

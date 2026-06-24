@@ -1,0 +1,186 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="profile-page">
+
+    <div class="profile-sidebar">
+
+        <h3>My Account</h3>
+
+        <ul>
+
+            <li>
+                <a href="{% url 'profile' %}">
+                    Profile
+                </a>
+            </li>
+
+            <li>
+                <a href="{% url 'my_orders' %}">
+                    My Orders
+                </a>
+            </li>
+
+            <li>
+                <a href="{% url 'addresses' %}">
+                    Addresses
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    Payment Methods
+                </a>
+            </li>
+
+            <li>
+                <a href="{% url 'logout' %}">
+                    Logout
+                </a>
+            </li>
+
+        </ul>
+
+    </div>
+
+    <div class="profile-content">
+
+        <h2>Profile Details</h2>
+
+        <hr><br>
+
+        {% if edit_mode %}
+
+        <form method="POST">
+
+            {% csrf_token %}
+
+            <div class="profile-form-group">
+
+                <label>Full Name</label>
+
+                <input type="text" name="name" value="{{ request.user.first_name }}">
+
+            </div>
+
+            <div class="profile-form-group">
+
+                <label>Email</label>
+
+                <input type="email" name="email" value="{{ request.user.email }}">
+
+            </div>
+
+            <div class="profile-form-group">
+
+                <label>Phone Number</label>
+
+                <input type="text" name="phone" value="{{ request.user.profile.phone }}">
+
+            </div>
+
+            <div class="profile-form-group">
+
+                <label>Address</label>
+
+                <textarea name="address" rows="3">{{ request.user.profile.address }}</textarea>
+
+            </div>
+
+            <div class="profile-form-group">
+
+                <label>City</label>
+
+                <input type="text" name="city" value="{{ request.user.profile.city }}">
+
+            </div>
+
+            <div class="profile-form-group">
+
+                <label>State</label>
+
+                <input type="text" name="state" value="{{ request.user.profile.state }}">
+
+            </div>
+
+            <div class="profile-form-group">
+
+                <label>Pincode</label>
+
+                <input type="text" name="pincode" value="{{ request.user.profile.pincode }}">
+
+            </div>
+
+            <button type="submit" class="edit-profile-btn">
+                Save Profile
+            </button>
+
+        </form>
+
+        {% else %}
+
+        <div class="profile-info">
+
+            <div class="profile-row">
+                <span class="profile-label">Full Name</span>
+                <span class="profile-value">
+                    {{ request.user.first_name|default:"Not Added" }}
+                </span>
+            </div>
+
+            <div class="profile-row">
+                <span class="profile-label">Email</span>
+                <span class="profile-value">
+                    {{ request.user.email|default:"Not Added" }}
+                </span>
+            </div>
+
+            <div class="profile-row">
+                <span class="profile-label">Phone</span>
+                <span class="profile-value">
+                    {{ request.user.profile.phone|default:"Not Added" }}
+                </span>
+            </div>
+
+            <div class="profile-row">
+                <span class="profile-label">Address</span>
+                <span class="profile-value">
+                    {{ request.user.profile.address|default:"Not Added" }}
+                </span>
+            </div>
+
+            <div class="profile-row">
+                <span class="profile-label">City</span>
+                <span class="profile-value">
+                    {{ request.user.profile.city|default:"Not Added" }}
+                </span>
+            </div>
+
+            <div class="profile-row">
+                <span class="profile-label">State</span>
+                <span class="profile-value">
+                    {{ request.user.profile.state|default:"Not Added" }}
+                </span>
+            </div>
+
+            <div class="profile-row">
+                <span class="profile-label">Pincode</span>
+                <span class="profile-value">
+                    {{ request.user.profile.pincode|default:"Not Added" }}
+                </span>
+            </div>
+
+            <a href="?edit=1" class="edit-profile-btn">
+                Edit Profile
+            </a>
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+</div>
+
+{% endblock %}

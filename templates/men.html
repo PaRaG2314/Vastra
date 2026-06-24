@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="products">
+
+    <h2>Men's Collection</h2>
+
+    <div class="product-grid">
+
+        {% for product in products %}
+
+        <a href="{% url 'product_detail' product.id %}" class="product-card-link">
+
+            <div class="product-card">
+
+                <img src="{{ product.image.url }}" alt="{{ product.name }}">
+
+                <h3>{{ product.name }}</h3>
+
+                <p>₹{{ product.price }}</p>
+
+                <button>Add To Cart</button>
+
+            </div>
+
+        </a>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+{% endblock %}

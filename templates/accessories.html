@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="products">
+
+    <h2>Accessories Collection</h2>
+
+    <div class="product-grid">
+
+        {% for product in products %}
+
+        <div class="product-card">
+
+            <img src="{{ product.image.url }}">
+
+            <h3>{{ product.name }}</h3>
+
+            <p>₹{{ product.price }}</p>
+
+            <button>Add To Cart</button>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+{% endblock %}

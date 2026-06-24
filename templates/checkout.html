@@ -1,0 +1,172 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="checkout-page">
+
+    <div class="checkout-left">
+
+        <div class="checkout-card">
+
+            <h2>Delivery Address</h2>
+
+            <hr><br>
+
+            <p>
+                <strong>Name:</strong>
+                {{ request.user.first_name }}
+            </p>
+
+            <p>
+                <strong>Phone:</strong>
+                {{ request.user.profile.phone }}
+            </p>
+
+            <p>
+                <strong>Address:</strong>
+                {{ request.user.profile.address }}
+            </p>
+
+            <p>
+                <strong>City:</strong>
+                {{ request.user.profile.city }}
+            </p>
+
+            <p>
+                <strong>State:</strong>
+                {{ request.user.profile.state }}
+            </p>
+
+            <p>
+                <strong>Pincode:</strong>
+                {{ request.user.profile.pincode }}
+            </p>
+
+            <br>
+
+            <a href="{% url 'profile' %}?edit=1" class="change-address-btn">
+
+                Change Address
+
+            </a>
+
+        </div>
+
+        <div class="checkout-card">
+
+            <h2>Order Items</h2>
+
+            <hr><br>
+
+            {% for item in cart_items %}
+
+            <div class="checkout-item">
+
+                <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+
+                <div>
+
+                    <h4>{{ item.product.name }}</h4>
+
+                    <p>
+                        Qty: {{ item.quantity }}
+                    </p>
+
+                    <p>
+                        ₹{{ item.subtotal }}
+                    </p>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+    <div class="checkout-right">
+
+        <div class="summary-card">
+
+            <h3>Order Summary</h3>
+
+            <hr><br>
+
+            <div class="summary-row">
+
+                <span>
+                    Items
+                </span>
+
+                <span>
+                    {{ cart_items|length }}
+                </span>
+
+            </div>
+
+            <div class="summary-row">
+
+                <span>
+                    Shipping
+                </span>
+
+                <span>
+                    FREE
+                </span>
+
+            </div>
+
+            <div class="summary-row total-row">
+
+                <span>
+                    Total Amount
+                </span>
+
+                <span>
+                    ₹{{ total }}
+                </span>
+
+            </div>
+
+            <hr><br>
+
+            <h4>Payment Options</h4>
+
+            <div class="payment-options">
+
+                <label>
+                    <input type="radio" name="payment_method" checked>
+                    Credit / Debit Card
+                </label>
+
+                <label>
+                    <input type="radio" name="payment_method">
+                    UPI
+                </label>
+
+                <label>
+                    <input type="radio" name="payment_method">
+                    Cash On Delivery
+                </label>
+
+            </div>
+
+            <br>
+
+            <br>
+
+            <a href="{% url 'place_order' %}" class="place-order-btn">
+
+                Place Order
+
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
