@@ -2,6 +2,7 @@ from django.urls import path
 from . import views
 from .views import my_orders
 from .views import addresses
+from .views import payment_methods
 
 
 urlpatterns = [
@@ -38,6 +39,11 @@ urlpatterns = [
         'addresses/',
         addresses,
         name='addresses'
+    ),
+    path(
+        'payment-methods/',
+        payment_methods,
+        name='payment_methods'
     ),
 
 ]

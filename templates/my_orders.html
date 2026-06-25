@@ -23,13 +23,13 @@
             </li>
 
             <li>
-                <a href="#">
+                <a href="{% url 'addresses' %}">
                     Addresses
                 </a>
             </li>
 
             <li>
-                <a href="#">
+                <a href="{% url 'payment_methods' %}">
                     Payment Methods
                 </a>
             </li>
@@ -52,38 +52,131 @@
 
         {% if orders %}
 
-            {% for order in orders %}
+        {% for order in orders %}
 
-            <div class="order-card">
+        <div class="order-card">
 
-                <h3>
-                    Order #{{ order.id }}
-                </h3>
+            <div class="order-header">
 
-                <p>
-                    Amount:
-                    ₹{{ order.total_amount }}
-                </p>
+                <div>
 
-                <p>
-                    Status:
-                    {{ order.status }}
-                </p>
+                    <h3>
+                        Order #{{ order.id }}
+                    </h3>
 
-                <p>
-                    Date:
-                    {{ order.created_at }}
-                </p>
+                    <small>
+                        {{ order.created_at }}
+                    </small>
+
+                </div>
+
+                <div>
+
+                    {% if order.status == "Placed" %}
+
+                    <span class="status-badge placed">
+                        🟢 Placed
+                    </span>
+
+                    {% elif order.status == "Processing" %}
+
+                    <span class="status-badge processing">
+                        🟡 Processing
+                    </span>
+
+                    {% elif order.status == "Shipped" %}
+
+                    <span class="status-badge shipped">
+                        🔵 Shipped
+                    </span>
+
+                    {% elif order.status == "Delivered" %}
+
+                    <span class="status-badge delivered">
+                        🟣 Delivered
+                    </span>
+
+                    {% else %}
+
+                    <span class="status-badge cancelled">
+                        🔴 Cancelled
+                    </span>
+
+                    {% endif %}
+
+                </div>
 
             </div>
 
-            {% endfor %}
+            <hr>
+
+            <div class="order-details">
+
+                <div class="order-row">
+
+                    <span>Total Amount</span>
+
+                    <strong>
+                        ₹{{ order.total_amount }}
+                    </strong>
+
+                </div>
+
+                <div class="order-row">
+
+                    <span>Payment Method</span>
+
+                    <strong>
+                        Cash On Delivery
+                    </strong>
+
+                </div>
+
+                <div class="order-row">
+
+                    <span>Order Status</span>
+
+                    <strong>
+                        {{ order.status }}
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
 
         {% else %}
 
+        <div class="empty-orders">
+
+            <div class="empty-orders-icon">
+
+                📦
+
+            </div>
+
+            <h2>
+
+                No Orders Yet
+
+            </h2>
+
             <p>
-                No orders found.
+
+                Looks like you haven't placed any orders.
+
             </p>
+
+            <a href="{% url 'home' %}" class="continue-shopping-btn">
+
+                Start Shopping
+
+            </a>
+
+        </div>
 
         {% endif %}
 

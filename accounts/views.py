@@ -188,3 +188,11 @@ def addresses(request):
         request,
         'addresses.html'
     )
+
+@login_required
+def payment_methods(request):
+
+    return render(
+        request,
+        'payment_methods.html'
+    )

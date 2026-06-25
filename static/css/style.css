@@ -976,23 +976,164 @@ body {
 }
 
 /* ===================================
+   PAYMENT METHODS
+=================================== */
+
+.payment-card{
+    border:1px solid #e5e5e5;
+    border-radius:10px;
+
+    padding:25px;
+
+    margin-bottom:20px;
+
+    background:#fff;
+
+    transition:0.3s;
+}
+
+.payment-card:hover{
+    box-shadow:0 5px 15px rgba(0,0,0,0.08);
+}
+
+.payment-header{
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:15px;
+}
+
+.payment-header h3{
+    margin:0;
+
+    font-size:22px;
+}
+
+.payment-status{
+    padding:6px 14px;
+
+    border-radius:20px;
+
+    font-size:14px;
+
+    font-weight:600;
+}
+
+.available-status{
+    background:#d4edda;
+
+    color:#155724;
+}
+
+.coming-status{
+    background:#fff3cd;
+
+    color:#856404;
+}
+
+.payment-card p{
+    color:#666;
+
+    line-height:1.7;
+
+    margin:0;
+}
+
+/* ===================================
    MY ORDERS
 =================================== */
 
 .order-card{
     border:1px solid #e5e5e5;
     border-radius:10px;
-
-    padding:20px;
-    margin-bottom:20px;
-
+    padding:25px;
+    margin-bottom:25px;
     background:#fff;
 }
 
-.order-card h3{
-    margin-bottom:10px;
+.order-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    margin-bottom:20px;
 }
 
-.order-card p{
-    margin:8px 0;
+.order-header h3{
+    margin-bottom:8px;
+}
+
+.order-header small{
+    color:#777;
+    font-size:14px;
+}
+
+.order-details{
+    margin-top:20px;
+}
+
+.order-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:12px 0;
+
+    border-bottom:1px solid #f0f0f0;
+}
+
+.order-row:last-child{
+    border-bottom:none;
+}
+
+.order-row span{
+    color:#666;
+}
+
+.order-row strong{
+    font-weight:600;
+}
+
+.status-badge{
+    padding:8px 16px;
+    border-radius:20px;
+    font-size:14px;
+    font-weight:600;
+}
+
+.placed{
+    background:#d4edda;
+    color:#155724;
+}
+
+.processing{
+    background:#fff3cd;
+    color:#856404;
+}
+
+.shipped{
+    background:#d1ecf1;
+    color:#0c5460;
+}
+
+.delivered{
+    background:#e2d6ff;
+    color:#5a2ea6;
+}
+
+.cancelled{
+    background:#f8d7da;
+    color:#721c24;
+}
+
+.empty-orders{
+    text-align:center;
+    padding:80px 20px;
+}
+
+.empty-orders-icon{
+    font-size:70px;
+    margin-bottom:20px;
 }

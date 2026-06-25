@@ -46,49 +46,37 @@
 
     <div class="profile-content">
 
-        <h2>Saved Address</h2>
+        <h2>Payment Methods</h2>
 
         <hr><br>
 
-        <div class="order-card">
+        <div class="payment-card">
+
+            <h3>💵 Cash On Delivery</h3>
 
             <p>
-                <strong>Name:</strong>
-                {{ request.user.first_name }}
+                Available
             </p>
+
+        </div>
+
+        <div class="payment-card">
+
+            <h3>💳 Credit / Debit Card</h3>
 
             <p>
-                <strong>Phone:</strong>
-                {{ request.user.profile.phone }}
+                Coming Soon
             </p>
+
+        </div>
+
+        <div class="payment-card">
+
+            <h3>📱 UPI</h3>
 
             <p>
-                <strong>Address:</strong>
-                {{ request.user.profile.address }}
+                Coming Soon
             </p>
-
-            <p>
-                <strong>City:</strong>
-                {{ request.user.profile.city }}
-            </p>
-
-            <p>
-                <strong>State:</strong>
-                {{ request.user.profile.state }}
-            </p>
-
-            <p>
-                <strong>Pincode:</strong>
-                {{ request.user.profile.pincode }}
-            </p>
-
-            <br>
-
-            <a href="{% url 'profile' %}?edit=1" class="edit-profile-btn">
-
-                Edit Address
-
-            </a>
 
         </div>
 
