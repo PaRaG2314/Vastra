@@ -13,98 +13,110 @@ Vastra is a full-stack fashion e-commerce web application built using Django. Th
 - Session Management
 - Navbar dynamically updates with username and logout button when logged in
 
+![Login](Project%20Screenshots/Login.png)
+
 ---
 
-### 🏠 Home Page
-- **Hero Section** — Full-width banner with tagline *"Elevate Your Fashion Game"* and a *Shop Now* CTA button
+### 🏠 Home Page — Hero Section
+- Full-width banner with tagline *"Elevate Your Fashion Game"* and a *Shop Now* CTA button
+
+![Home Page](Project%20Screenshots/Home_Page.png)
+
+### 🗂️ Featured Categories & Why Choose Vastra
 - **Featured Categories** — Visual cards for Men, Women, Shoes, and Accessories
 - **Why Choose Vastra?** — Highlights: Free Shipping, Secure Payments, Easy Returns, Premium Quality
-- **Trending Products** — Showcases top products (Classic Hoodie, Denim Jacket, Sneakers) with *Add to Cart* buttons
+
+![Home Page 2](Project%20Screenshots/Home_Page__2.png)
+
+### 🔥 Trending Products
+- Showcases top products (Classic Hoodie, Denim Jacket, Sneakers) with *Add to Cart* buttons directly from the home page
+
+![Trending](Project%20Screenshots/Trending.png)
+
+### 📬 Newsletter & Footer
 - **Stay Updated** — Newsletter subscription section with email input
 - **Footer** — Links for Shop (Men, Women, Shoes, Accessories), Company (About Us, Contact Us), and Legal (Privacy Policy, Terms & Conditions)
 
+![Footer](Project%20Screenshots/Footer.png)
+
 ---
 
-### 🛒 Product Browsing
+### 👕 Product Browsing
 - **Category Pages** — Dedicated pages per category (e.g., Men's Collection)
 - **Product Cards** — Display product image, star ratings, name, price, and a *View Product* button
 - **New Badge** — "New" tag displayed on newly added products
-- **Product Detail Page**
-  - Large product image
-  - Product name and price
-  - Full product description
-  - Stock availability count
-  - *Add to Cart* button
-  - Toast notification on successful cart addition (e.g., *'Faded Indigo' Hoodie added to your cart*)
 - **Search Bar** — Search products from the navbar
+
+![Product Section](Project%20Screenshots/Product_Section.png)
+
+### 🧥 Product Detail Page
+- Large product image
+- Product name and price
+- Full product description
+- Stock availability count
+- *Add to Cart* button
+- Toast notification on successful cart addition (e.g., *'Faded Indigo' Hoodie added to your cart*)
+
+![Product Detail](Project%20Screenshots/Product_Detail.png)
 
 ---
 
 ### 🛒 Shopping Cart
 - Add to Cart from product listing and product detail pages
 - Cart item counter shown in Navbar (e.g., *Cart (3)*)
-- **Cart Page**
-  - Product image, name, and price per item
-  - Quantity controls (`-` / `+`) per item
-  - Per-item subtotal calculation
-  - *Remove Item* button (red)
-  - **Price Details Sidebar**
-    - Items count and total
-    - Shipping: **FREE**
-    - Platform Fee: ₹0
-    - Total Amount
-  - *Proceed to Checkout* button
+- Product image, name, and price per item
+- Quantity controls (`-` / `+`) per item with per-item subtotal
+- *Remove Item* button (red)
+- **Price Details Sidebar** — Items total, Shipping FREE, Platform Fee ₹0, Total Amount
+- *Proceed to Checkout* button
+
+![Cart](Project%20Screenshots/Cart.png)
 
 ---
 
-### 📦 Checkout & Orders
-- **Checkout Page**
-  - Saved delivery address display (Name, Phone, Address, City, State, Pincode)
-  - *Change Address* option
-  - Order Items list with images, quantities, and prices
-  - **Order Summary Sidebar** with total amount and shipping status
-  - **Payment Method Selection**
-    - Cash on Delivery
-    - Razorpay (Online Payment)
-  - *Continue* button to proceed with selected payment
+### 📦 Checkout Page
+- Saved delivery address display (Name, Phone, Address, City, State, Pincode)
+- *Change Address* option
+- Order Items list with images, quantities, and prices
+- **Order Summary Sidebar** with total amount and shipping status
+- **Payment Method Selection** — Cash on Delivery or Razorpay (Online Payment)
+- *Continue* button to proceed with selected payment
+
+![Checkout](Project%20Screenshots/Checkout.png)
 
 ---
 
 ### 💳 Razorpay Payment Integration
-- **Razorpay Payment Page** — Shows total amount, gateway (Razorpay), and currency (INR)
-- *Pay Securely* button (blue) with Razorpay Secure Checkout protection badge
+- **Secure Payment Page** — Shows total amount, gateway (Razorpay), and currency (INR)
+- *Pay Securely* button with Razorpay Secure Checkout protection badge
+
+![Razorpay](Project%20Screenshots/Razorpay.png)
+
 - **Razorpay Checkout Modal**
   - Price Summary card
   - Payment Options: Cards, Netbanking, Wallet, Pay Later
   - Card input form (Card Number, MM/YY, CVV)
   - Save card option (RBI guidelines compliant)
-  - *Continue* button
   - Secured by Razorpay branding
+
+![Razorpay Modal](Project%20Screenshots/Razorpay_2.png)
 
 ---
 
 ### 👤 User Profile
-- **My Account Dashboard** with sidebar navigation:
-  - Profile
-  - My Orders
-  - Addresses
-  - Payment Methods
-  - Logout
-- **Profile Details Page**
-  - Full Name, Email, Phone
-  - Address, City, State, Pincode
-  - *Edit Profile* button
+- **My Account Dashboard** with sidebar navigation: Profile, My Orders, Addresses, Payment Methods, Logout
+- Profile Details — Full Name, Email, Phone, Address, City, State, Pincode
+- *Edit Profile* button
+
+![User Page](Project%20Screenshots/User_Page.png)
 
 ---
 
 ### 📋 My Orders
 - Order history listed in reverse chronological order
-- Each order card displays:
-  - Order number (e.g., *Order #6*)
-  - Order date and time
-  - Total Amount
-  - Payment Method (Cash on Delivery / Razorpay)
-  - Order Status badge (e.g., **Placed** — green)
+- Each order card shows order number, date & time, total amount, payment method, and status badge (e.g., **Placed** — green)
+
+![My Orders](Project%20Screenshots/My_Orders.png)
 
 ---
 
@@ -152,12 +164,12 @@ vastra/
 
 ### 1. Clone Repository
 ```bash
-git clone https://github.com/PaRaG2314/-Vastra.git
+git clone https://github.com/PaRaG2314/Vastra.git
 ```
 
 ### 2. Move Into Project
 ```bash
-cd -Vastra
+cd Vastra
 ```
 
 ### 3. Create Virtual Environment
@@ -191,49 +203,6 @@ python manage.py migrate
 ```bash
 python manage.py runserver
 ```
-
----
-
-## 📸 Screenshots
-
-### 🏠 Home Page — Hero Section
-![Home Page](screenshots/Home_Page.png)
-
-### 🗂️ Featured Categories & Why Choose Vastra
-![Home Page 2](screenshots/Home_Page_2.png)
-
-### 🔥 Trending Products
-![Trending](screenshots/Trending.png)
-
-### 👕 Men's Collection — Product Listing
-![Product Section](screenshots/Product_Section.png)
-
-### 🧥 Product Detail Page
-![Product Detail](screenshots/Product_Detail.png)
-
-### 🛒 Cart Page
-![Cart](screenshots/Cart.png)
-
-### 📦 Checkout Page
-![Checkout](screenshots/Checkout.png)
-
-### 💳 Razorpay — Secure Payment Page
-![Razorpay](screenshots/Razorpay.png)
-
-### 💳 Razorpay — Payment Modal
-![Razorpay Modal](screenshots/Razorpay_2.png)
-
-### 👤 User Profile
-![User Page](screenshots/User_Page.png)
-
-### 📋 My Orders
-![My Orders](screenshots/My_Orders.png)
-
-### 🔐 Login Page
-![Login](screenshots/Login.png)
-
-### 📬 Newsletter & Footer
-![Footer](screenshots/Footer.png)
 
 ---
 
