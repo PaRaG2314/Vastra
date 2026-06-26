@@ -1,110 +1,147 @@
 # 🛍️ Vastra – Fashion E-Commerce Website
 
-Vastra is a full-stack fashion e-commerce web application built using Django. The platform allows users to browse products, manage their cart, create accounts, place orders, and manage their profile information through a modern and responsive interface.
+Vastra is a full-stack fashion e-commerce web application built using Django. The platform allows users to browse products, manage their cart, create accounts, place orders, and securely pay online — all through a modern and responsive interface.
 
 ---
 
 ## 🚀 Features
 
-### User Authentication
+### 🔐 User Authentication
+- User Registration (`Register here` link on Login page)
+- User Login (Username + Password)
+- User Logout
+- Session Management
+- Navbar dynamically updates with username and logout button when logged in
 
-* User Registration
-* User Login
-* User Logout
-* Session Management
+---
 
-### Product Management
+### 🏠 Home Page
+- **Hero Section** — Full-width banner with tagline *"Elevate Your Fashion Game"* and a *Shop Now* CTA button
+- **Featured Categories** — Visual cards for Men, Women, Shoes, and Accessories
+- **Why Choose Vastra?** — Highlights: Free Shipping, Secure Payments, Easy Returns, Premium Quality
+- **Trending Products** — Showcases top products (Classic Hoodie, Denim Jacket, Sneakers) with *Add to Cart* buttons
+- **Stay Updated** — Newsletter subscription section with email input
+- **Footer** — Links for Shop (Men, Women, Shoes, Accessories), Company (About Us, Contact Us), and Legal (Privacy Policy, Terms & Conditions)
 
-* Product Categories
+---
 
-  * Men
-  * Women
-  * Shoes
-  * Accessories
-* Product Detail Page
-* Product Images
-* Product Pricing
+### 🛒 Product Browsing
+- **Category Pages** — Dedicated pages per category (e.g., Men's Collection)
+- **Product Cards** — Display product image, star ratings, name, price, and a *View Product* button
+- **New Badge** — "New" tag displayed on newly added products
+- **Product Detail Page**
+  - Large product image
+  - Product name and price
+  - Full product description
+  - Stock availability count
+  - *Add to Cart* button
+  - Toast notification on successful cart addition (e.g., *'Faded Indigo' Hoodie added to your cart*)
+- **Search Bar** — Search products from the navbar
 
-### Shopping Cart
+---
 
-* Add to Cart
-* Remove from Cart
-* Increase Quantity
-* Decrease Quantity
-* Cart Total Calculation
-* Cart Item Counter in Navbar
-* Empty Cart Design
+### 🛒 Shopping Cart
+- Add to Cart from product listing and product detail pages
+- Cart item counter shown in Navbar (e.g., *Cart (3)*)
+- **Cart Page**
+  - Product image, name, and price per item
+  - Quantity controls (`-` / `+`) per item
+  - Per-item subtotal calculation
+  - *Remove Item* button (red)
+  - **Price Details Sidebar**
+    - Items count and total
+    - Shipping: **FREE**
+    - Platform Fee: ₹0
+    - Total Amount
+  - *Proceed to Checkout* button
 
-### User Profile
+---
 
-* Profile Dashboard
-* Edit Profile
-* Update Personal Information
-* Save Phone Number
-* Save Address
-* Save City, State and Pincode
+### 📦 Checkout & Orders
+- **Checkout Page**
+  - Saved delivery address display (Name, Phone, Address, City, State, Pincode)
+  - *Change Address* option
+  - Order Items list with images, quantities, and prices
+  - **Order Summary Sidebar** with total amount and shipping status
+  - **Payment Method Selection**
+    - Cash on Delivery
+    - Razorpay (Online Payment)
+  - *Continue* button to proceed with selected payment
 
-### Orders
+---
 
-* Checkout Page
-* Order Summary
-* Place Order
-* Order Success Page
-* My Orders Page
-* Order History Tracking
+### 💳 Razorpay Payment Integration
+- **Razorpay Payment Page** — Shows total amount, gateway (Razorpay), and currency (INR)
+- *Pay Securely* button (blue) with Razorpay Secure Checkout protection badge
+- **Razorpay Checkout Modal**
+  - Price Summary card
+  - Payment Options: Cards, Netbanking, Wallet, Pay Later
+  - Card input form (Card Number, MM/YY, CVV)
+  - Save card option (RBI guidelines compliant)
+  - *Continue* button
+  - Secured by Razorpay branding
 
-### Address Management
+---
 
-* Saved Address Display
-* Address Integration with Checkout
+### 👤 User Profile
+- **My Account Dashboard** with sidebar navigation:
+  - Profile
+  - My Orders
+  - Addresses
+  - Payment Methods
+  - Logout
+- **Profile Details Page**
+  - Full Name, Email, Phone
+  - Address, City, State, Pincode
+  - *Edit Profile* button
 
-### Admin Panel
+---
 
-* Manage Products
-* Manage Users
-* Manage Orders
-* Django Admin Dashboard
+### 📋 My Orders
+- Order history listed in reverse chronological order
+- Each order card displays:
+  - Order number (e.g., *Order #6*)
+  - Order date and time
+  - Total Amount
+  - Payment Method (Cash on Delivery / Razorpay)
+  - Order Status badge (e.g., **Placed** — green)
+
+---
+
+### 🛠️ Admin Panel
+- Django Admin Dashboard
+- Manage Products (add, edit, delete)
+- Manage Users
+- Manage Orders
+- Manage Categories
 
 ---
 
 ## 🛠️ Tech Stack
 
-### Backend
-
-* Python
-* Django
-
-### Frontend
-
-* HTML5
-* CSS3
-* JavaScript
-
-### Database
-
-* SQLite (Current)
-* MySQL (Planned)
-
-### Version Control
-
-* Git
-* GitHub
+| Layer | Technology |
+|---|---|
+| Backend | Python, Django |
+| Frontend | HTML5, CSS3, JavaScript |
+| Database | SQLite (Current), MySQL (Planned) |
+| Payments | Razorpay |
+| Version Control | Git, GitHub |
 
 ---
 
 ## 📂 Project Structure
 
-```text
+```
 vastra/
 │
-├── accounts/
-├── cart/
-├── checkout/
-├── orders/
-├── shop/
-├── static/
-├── templates/
-├── media/
+├── accounts/          # User auth, profile, addresses
+├── cart/              # Cart logic and views
+├── checkout/          # Checkout and order placement
+├── orders/            # Order history and tracking
+├── shop/              # Product listings and detail pages
+├── static/            # CSS, JS, images
+├── templates/         # HTML templates
+├── media/             # Uploaded product images
 ├── manage.py
 └── db.sqlite3
 ```
@@ -113,71 +150,110 @@ vastra/
 
 ## ⚙️ Installation
 
-### Clone Repository
-
+### 1. Clone Repository
 ```bash
 git clone https://github.com/PaRaG2314/-Vastra.git
 ```
 
-### Move Into Project
-
+### 2. Move Into Project
 ```bash
 cd -Vastra
 ```
 
-### Create Virtual Environment
-
+### 3. Create Virtual Environment
 ```bash
 python -m venv venv
 ```
 
-### Activate Virtual Environment
+### 4. Activate Virtual Environment
 
-Windows:
-
+**Windows:**
 ```bash
 venv\Scripts\activate
 ```
 
-### Install Dependencies
+**macOS/Linux:**
+```bash
+source venv/bin/activate
+```
 
+### 5. Install Dependencies
 ```bash
 pip install -r requirements.txt
 ```
 
-### Run Migrations
-
+### 6. Run Migrations
 ```bash
 python manage.py migrate
 ```
 
-### Start Development Server
-
+### 7. Start Development Server
 ```bash
 python manage.py runserver
 ```
 
 ---
 
-## 🎯 Future Improvements
+## 📸 Screenshots
 
-* Razorpay Integration
-* Multiple Address Support
-* Product Search
-* Wishlist
-* Product Reviews
-* Email Notifications
-* Order Tracking
-* MySQL Deployment
+### 🏠 Home Page — Hero Section
+![Home Page](screenshots/Home_Page.png)
+
+### 🗂️ Featured Categories & Why Choose Vastra
+![Home Page 2](screenshots/Home_Page_2.png)
+
+### 🔥 Trending Products
+![Trending](screenshots/Trending.png)
+
+### 👕 Men's Collection — Product Listing
+![Product Section](screenshots/Product_Section.png)
+
+### 🧥 Product Detail Page
+![Product Detail](screenshots/Product_Detail.png)
+
+### 🛒 Cart Page
+![Cart](screenshots/Cart.png)
+
+### 📦 Checkout Page
+![Checkout](screenshots/Checkout.png)
+
+### 💳 Razorpay — Secure Payment Page
+![Razorpay](screenshots/Razorpay.png)
+
+### 💳 Razorpay — Payment Modal
+![Razorpay Modal](screenshots/Razorpay_2.png)
+
+### 👤 User Profile
+![User Page](screenshots/User_Page.png)
+
+### 📋 My Orders
+![My Orders](screenshots/My_Orders.png)
+
+### 🔐 Login Page
+![Login](screenshots/Login.png)
+
+### 📬 Newsletter & Footer
+![Footer](screenshots/Footer.png)
+
+---
+
+## 🎯 Roadmap / Future Improvements
+
+- [x] ~~Razorpay Integration~~ ✅ Done
+- [x] ~~Product Search~~ ✅ Done
+- [ ] Multiple Address Support
+- [ ] Wishlist
+- [ ] Product Reviews & Ratings (user-submitted)
+- [ ] Email Notifications (order confirmation)
+- [ ] Order Tracking (Shipped, Out for Delivery, Delivered statuses)
+- [ ] MySQL Deployment
+- [ ] Coupon & Discount Codes
+- [ ] Size & Color Selection on Product Page
 
 ---
 
 ## 👨‍💻 Developer
 
 **Parag Pratim Pan**
-
 Final Year Computer Science Engineering Student
-
 Chitkara University
-
----
