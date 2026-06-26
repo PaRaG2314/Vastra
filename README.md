@@ -20,13 +20,13 @@ Vastra is a full-stack fashion e-commerce web application built using Django. Th
 ### 🏠 Home Page — Hero Section
 - Full-width banner with tagline *"Elevate Your Fashion Game"* and a *Shop Now* CTA button
 
-![Home Page](Project%20Screenshots/Home_Page.png)
+![Home Page](Project%20Screenshots/Home%20Page.png)
 
 ### 🗂️ Featured Categories & Why Choose Vastra
 - **Featured Categories** — Visual cards for Men, Women, Shoes, and Accessories
 - **Why Choose Vastra?** — Highlights: Free Shipping, Secure Payments, Easy Returns, Premium Quality
 
-![Home Page 2](Project%20Screenshots/Home_Page__2.png)
+![Home Page 2](Project%20Screenshots/Home%20Page%20%202.png)
 
 ### 🔥 Trending Products
 - Showcases top products (Classic Hoodie, Denim Jacket, Sneakers) with *Add to Cart* buttons directly from the home page
@@ -47,7 +47,7 @@ Vastra is a full-stack fashion e-commerce web application built using Django. Th
 - **New Badge** — "New" tag displayed on newly added products
 - **Search Bar** — Search products from the navbar
 
-![Product Section](Project%20Screenshots/Product_Section.png)
+![Product Section](Project%20Screenshots/Product%20Section.png)
 
 ### 🧥 Product Detail Page
 - Large product image
@@ -57,7 +57,7 @@ Vastra is a full-stack fashion e-commerce web application built using Django. Th
 - *Add to Cart* button
 - Toast notification on successful cart addition (e.g., *'Faded Indigo' Hoodie added to your cart*)
 
-![Product Detail](Project%20Screenshots/Product_Detail.png)
+![Product Detail](Project%20Screenshots/Product%20Detail.png)
 
 ---
 
@@ -99,7 +99,7 @@ Vastra is a full-stack fashion e-commerce web application built using Django. Th
   - Save card option (RBI guidelines compliant)
   - Secured by Razorpay branding
 
-![Razorpay Modal](Project%20Screenshots/Razorpay_2.png)
+![Razorpay 2](Project%20Screenshots/Razorpay%202.png)
 
 ---
 
@@ -108,7 +108,7 @@ Vastra is a full-stack fashion e-commerce web application built using Django. Th
 - Profile Details — Full Name, Email, Phone, Address, City, State, Pincode
 - *Edit Profile* button
 
-![User Page](Project%20Screenshots/User_Page.png)
+![User Page](Project%20Screenshots/User%20Page.png)
 
 ---
 
@@ -116,7 +116,7 @@ Vastra is a full-stack fashion e-commerce web application built using Django. Th
 - Order history listed in reverse chronological order
 - Each order card shows order number, date & time, total amount, payment method, and status badge (e.g., **Placed** — green)
 
-![My Orders](Project%20Screenshots/My_Orders.png)
+![My Orders](Project%20Screenshots/My%20Orders.png)
 
 ---
 
