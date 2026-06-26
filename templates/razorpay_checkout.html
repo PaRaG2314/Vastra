@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="payment-page">
+
+    <div class="payment-card">
+
+        <div class="payment-icon">
+            💳
+        </div>
+
+        <h1>Secure Payment</h1>
+
+        <p class="payment-text">
+            Complete your payment securely using Razorpay.
+        </p>
+
+        <div class="payment-summary">
+
+            <div class="payment-row">
+                <span>Total Amount</span>
+                <strong>₹{{ display_amount|floatformat:2 }}</strong>
+            </div>
+
+            <div class="payment-row">
+                <span>Gateway</span>
+                <strong>Razorpay</strong>
+            </div>
+
+            <div class="payment-row">
+                <span>Currency</span>
+                <strong>INR</strong>
+            </div>
+
+        </div>
+
+        <button id="rzp-button" class="pay-btn">
+            Pay Securely
+        </button>
+
+        <p class="secure-note">
+            🔒 Your payment is protected by Razorpay Secure Checkout.
+        </p>
+
+    </div>
+
+</div>
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+<script>
+
+var options = {
+
+    key: "{{ razorpay_key }}",
+
+    amount: "{{ amount }}",
+
+    currency: "INR",
+
+    name: "Vastra",
+
+    description: "Order Payment",
+
+    order_id: "{{ razorpay_order_id }}",
+
+    handler: function (response) {
+
+        window.location.href =
+        "{% url 'payment_success' %}" +
+        "?payment_id=" + response.razorpay_payment_id +
+        "&order_id=" + response.razorpay_order_id +
+        "&signature=" + response.razorpay_signature;
+
+    }
+
+};
+
+console.log(options);
+
+var rzp = new Razorpay(options);
+
+document.getElementById("rzp-button").onclick = function(e){
+
+    console.log("Button Clicked");
+
+    rzp.open();
+
+    e.preventDefault();
+
+}
+
+</script>
+
+{% endblock %}

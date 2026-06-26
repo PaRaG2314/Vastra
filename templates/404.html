@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="error-page">
+
+    <div class="error-container">
+
+        <h1>404</h1>
+
+        <h2>Oops! Page Not Found</h2>
+
+        <p>
+            The page you are looking for doesn't exist or has been moved.
+        </p>
+
+        <a href="{% url 'home' %}" class="error-btn">
+
+            Go Back Home
+
+        </a>
+
+    </div>
+
+</section>
+
+{% endblock %}

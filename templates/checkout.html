@@ -96,72 +96,77 @@
 
             <div class="summary-row">
 
-                <span>
-                    Items
-                </span>
+                <span>Items</span>
 
-                <span>
-                    {{ cart_items|length }}
-                </span>
+                <span>{{ cart_items|length }}</span>
 
             </div>
 
             <div class="summary-row">
 
-                <span>
-                    Shipping
-                </span>
+                <span>Shipping</span>
 
-                <span>
-                    FREE
-                </span>
+                <span>FREE</span>
 
             </div>
 
             <div class="summary-row total-row">
 
-                <span>
-                    Total Amount
-                </span>
+                <span>Total Amount</span>
 
-                <span>
-                    ₹{{ total }}
-                </span>
+                <span>₹{{ total }}</span>
 
             </div>
 
             <hr><br>
 
-            <h4>Payment Options</h4>
+            <form method="POST" action="{% url 'place_order' %}">
 
-            <div class="payment-options">
+                {% csrf_token %}
 
-                <label>
-                    <input type="radio" name="payment_method" checked>
-                    Credit / Debit Card
-                </label>
+                <h4>Payment Method</h4>
 
-                <label>
-                    <input type="radio" name="payment_method">
-                    UPI
-                </label>
+                <div class="payment-options">
 
-                <label>
-                    <input type="radio" name="payment_method">
-                    Cash On Delivery
-                </label>
+                    <label>
 
-            </div>
+                        <input
+                            type="radio"
+                            name="payment_method"
+                            value="COD"
+                            checked
+                        >
 
-            <br>
+                        Cash On Delivery
 
-            <br>
+                    </label>
 
-            <a href="{% url 'place_order' %}" class="place-order-btn">
+                    <label>
 
-                Place Order
+                        <input
+                            type="radio"
+                            name="payment_method"
+                            value="RAZORPAY"
+                        >
 
-            </a>
+                        Razorpay (Online Payment)
+
+                    </label>
+
+                </div>
+
+                <br>
+
+                <button
+                    type="submit"
+                    class="place-order-btn"
+                >
+
+                    Continue
+
+                </button>
+
+            </form>
 
         </div>
 
@@ -170,3 +175,4 @@
 </div>
 
 {% endblock %}
+```

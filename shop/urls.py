@@ -8,7 +8,12 @@ from .views import (
     women_products,
     shoes_products,
     accessories_products,
-    product_detail
+    product_detail,
+    about,
+    contact,
+    privacy_policy,
+    terms_conditions,
+    search
 )
 
 urlpatterns = [
@@ -29,5 +34,31 @@ urlpatterns = [
         'product/<int:product_id>/',
         product_detail,
         name='product_detail'
+    ),
+    path(
+        'about/',
+        about,
+        name='about'
+    ),
+    path(
+        'contact/',
+        contact,
+        name='contact'
+    ),
+    path(
+        'privacy-policy/',
+        privacy_policy,
+        name='privacy_policy'
+    ),
+
+    path(
+        'terms-and-conditions/',
+        terms_conditions,
+        name='terms_conditions'
+    ),
+    path(
+        'search/',
+        search,
+        name='search'
     ),
 ]

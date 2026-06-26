@@ -10,17 +10,41 @@
 
         {% for product in products %}
 
-        <div class="product-card">
+        <a href="{% url 'product_detail' product.id %}" class="product-card-link">
 
-            <img src="{{ product.image.url }}">
+            <div class="product-card">
 
-            <h3>{{ product.name }}</h3>
+                <img src="{{ product.image.url }}" alt="{{ product.name }}">
 
-            <p>₹{{ product.price }}</p>
+                <div class="product-badge">
 
-            <button>Add To Cart</button>
+                    New
 
-        </div>
+                </div>
+
+                <div class="product-rating">
+
+                    ★★★★★
+
+                </div>
+
+                <h3>{{ product.name }}</h3>
+
+                <p class="product-price">
+
+                    ₹{{ product.price }}
+
+                </p>
+
+                <button>
+
+                    View Product
+
+                </button>
+
+            </div>
+
+        </a>
 
         {% endfor %}
 
